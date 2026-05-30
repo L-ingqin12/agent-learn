@@ -11,6 +11,7 @@ Agent Learn — AI Agent 开发学习包。
 - multi_agent:    多 Agent 协作系统
 - advanced_agent: oh-my-opencode 风格的高级三层 Agent
 - cache_first:    Reasonix 启发的缓存优先循环 + 工具修复
+- analysis_agent: 定制化问题分析 Agent (O-H-V-C 协议)
 """
 
 from agent_learn.base import BaseAgent, ToolDef, ToolResult
@@ -28,6 +29,11 @@ from agent_learn.cache_first import (
     CacheFirstAgent, ImmutablePrefix, AppendOnlyLog, VolatileScratch,
     ToolCallRepairPipeline, CacheStats, CostAwareRouter, ComplexityTier,
     create_cache_first_agent,
+)
+from agent_learn.analysis_agent import (
+    ProblemAnalysisAgent, DomainKnowledge, FailureMode,
+    DiagnosticRule, EvidenceStrategy, Severity, DiagnosisReport,
+    create_python_bug_domain, create_api_debug_domain,
 )
 
 __all__ = [
@@ -50,4 +56,8 @@ __all__ = [
     "CacheFirstAgent", "ImmutablePrefix", "AppendOnlyLog", "VolatileScratch",
     "ToolCallRepairPipeline", "CacheStats", "CostAwareRouter", "ComplexityTier",
     "create_cache_first_agent",
+    # Problem Analysis
+    "ProblemAnalysisAgent", "DomainKnowledge", "FailureMode",
+    "DiagnosticRule", "EvidenceStrategy", "Severity", "DiagnosisReport",
+    "create_python_bug_domain", "create_api_debug_domain",
 ]

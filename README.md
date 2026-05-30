@@ -122,10 +122,10 @@ python examples/01_weather_agent.py
 
 ## 学习路线
 
-1. **阅读文档**：`docs/` 目录下 01→02→03→04→05→06→07 顺序阅读
-2. **阅读源码**：按 `base.py → tools.py → memory.py → simple_agent.py → react_agent.py → memory_agent.py → multi_agent.py → advanced_agent.py → cache_first.py` 顺序
+1. **阅读文档**：`docs/` 目录下 01→02→03→04→05→06→07→08 顺序阅读
+2. **阅读源码**：按 `base.py → tools.py → memory.py → simple_agent.py → react_agent.py → memory_agent.py → multi_agent.py → advanced_agent.py → cache_first.py → analysis_agent.py` 顺序
 3. **运行示例**：`examples/` 下的示例按编号逐个运行
-4. **实战项目**：参考 `05_code_assistant.py`，构建自己的 Agent 应用
+4. **实战项目**：参考 `05_code_assistant.py` 或 `08_custom_analysis_agent.py`，构建自己的 Agent 应用
 
 ## 核心原则
 
@@ -137,6 +137,26 @@ python examples/01_weather_agent.py
 ---
 
 ## 更新记录
+
+### v0.4.0 — 2026-05-30: 定制化问题分析 Agent 框架
+
+**新增文档**:
+- `docs/08-custom-problem-agent.md` — 定制化问题分析 Agent 设计方法论
+
+**新增模块**:
+- `agent_learn/analysis_agent.py` — 可插拔领域知识的问题分析 Agent
+  - `O-H-V-C` 通用分析协议 (Observe→Hypothesize→Verify→Conclude)
+  - `DomainKnowledge` — 领域知识库 (FailureMode / DiagnosticRule / EvidenceStrategy)
+  - `ProblemAnalysisAgent` — 推理引擎与领域知识分离
+  - `create_python_bug_domain()` — Python Bug 诊断知识库 (5 个故障模式)
+  - `create_api_debug_domain()` — API 调试诊断知识库 (4 个故障模式)
+
+**新增示例**:
+- `examples/08_custom_analysis_agent.py` — 5 个子 Demo 演示领域知识定义、症状匹配、O-H-V-C 流程、定制新领域、API 调试
+
+**核心启示**: 定制化 Agent 开发的关键是将推理协议(通用)与领域知识(可插拔)分离。换一个问题域只需替换 DomainKnowledge + EvidenceCollectors，O-H-V-C 协议不变。五步法: 定义问题域→梳理故障模式→编码规则→实现收集器→验证迭代。
+
+---
 
 ### v0.3.0 — 2026-05-30: Reasonix 架构分析与 Cache-First 实现
 
