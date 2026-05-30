@@ -138,6 +138,32 @@ python examples/01_weather_agent.py
 
 ## 更新记录
 
+### v0.5.0 — 2026-05-30: 虚拟内存换入换出 + 多模型适配层
+
+**新增模块**:
+- `agent_learn/memory.py` 扩展 — OS 虚拟内存风格的记忆管理
+  - `VirtualMemoryStore` — 换入换出引擎 (Page Table / Page Fault / Clock/LRU/LFU)
+  - `SwappableMemoryStore` — Agent 即插即用的记忆接口
+  - `ReplacementPolicy` — 三种替换策略 (CLOCK/LRU/LFU)
+  - 颠簸检测 / 脏页写回 / 钉住机制
+- `agent_learn/adapters/` — 多模型适配层 (新包)
+  - `base.py` — `BaseModelAdapter` 抽象接口 + 统一数据结构 (UnifiedMessage/UnifiedToolDef/UnifiedResponse)
+  - `anthropic.py` — Anthropic Claude 适配器
+  - `openai.py` — OpenAI GPT 适配器
+- `agent_learn/provider_agent.py` — Provider 无关 Agent (Agent 层不 import 任何 SDK)
+
+**新增示例**:
+- `examples/09_memory_swap.py` — 5 个子 Demo (基本换入换出 / 三种策略对比 / 颠簸检测 / 脏页写回 / Agent 集成)
+- `examples/10_multi_model_agent.py` — 4 个子 Demo (统一格式 / 适配器抽象 / 模型切换 / 成本对比)
+
+**核心启示**:
+- OS 内存管理思想完美映射到 Agent 记忆: Context Window = RAM, Disk = Swap File, Page = 记忆记录
+- Agent 层不应关心模型来源 — 通过适配器层将业务逻辑与 Provider SDK 解耦
+- 换入换出让 Agent 记忆突破 Context Window 限制
+- 切换模型只需一行 `adapter = XxxAdapter()`, Agent 代码零改动
+
+---
+
 ### v0.4.0 — 2026-05-30: 定制化问题分析 Agent 框架
 
 **新增文档**:
