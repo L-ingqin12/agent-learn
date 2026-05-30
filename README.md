@@ -138,6 +138,22 @@ python examples/01_weather_agent.py
 
 ## 更新记录
 
+### v0.6.0 — 2026-05-30: 知识库扩充 — 生产实践 + 高级模式 + 最佳实践速查
+
+**新增文档** (3 章):
+- `docs/09-production-agent-patterns.md` — 生产级 Agent 工程实践 (Google/Mindflow/Arthur.ai 2026 最佳实践)
+  - 9 项生产验证工程实践 / 有界自治 / 五层基础设施栈 / 生产就绪检查清单
+- `docs/10-advanced-agent-patterns.md` — 高级 Agent 模式 (综合 2025 研究文献)
+  - Reflexion/Reflexion++ 自反思 / Tree-of-Thought / Multi-Agent 四拓扑 / 评估框架
+  - "越多 Agent 越好" 神话破灭: MAS 消耗 15× token, 单强 Agent 常优于团队
+- `docs/11-agent-best-practices-cheatsheet.md` — Agent 开发最佳实践速查手册
+  - 架构选择决策树 / 模型选择 / Prompt 工程 / 工具设计 / 记忆管理 / 安全检查清单
+  - 开发 8 步流程 / agent-learn 能力矩阵
+
+**项目累计**: 11 章文档 + 10 个 Agent 实现模块 + 10 个可运行示例
+
+---
+
 ### v0.5.0 — 2026-05-30: 虚拟内存换入换出 + 多模型适配层
 
 **新增模块**:
