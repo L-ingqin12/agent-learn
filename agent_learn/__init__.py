@@ -10,6 +10,7 @@ Agent Learn — AI Agent 开发学习包。
 - memory_agent:   带记忆的 Agent
 - multi_agent:    多 Agent 协作系统
 - advanced_agent: oh-my-opencode 风格的高级三层 Agent
+- cache_first:    Reasonix 启发的缓存优先循环 + 工具修复
 """
 
 from agent_learn.base import BaseAgent, ToolDef, ToolResult
@@ -23,6 +24,11 @@ from agent_learn.react_agent import ReActAgent, create_research_agent
 from agent_learn.memory_agent import MemoryAgent, create_personal_assistant
 from agent_learn.multi_agent import MultiAgentSystem, Role, Task, demo_team
 from agent_learn.advanced_agent import AdvancedOrchestrator, create_advanced_agent
+from agent_learn.cache_first import (
+    CacheFirstAgent, ImmutablePrefix, AppendOnlyLog, VolatileScratch,
+    ToolCallRepairPipeline, CacheStats, CostAwareRouter, ComplexityTier,
+    create_cache_first_agent,
+)
 
 __all__ = [
     # Base
@@ -40,4 +46,8 @@ __all__ = [
     "MultiAgentSystem", "Role", "Task", "demo_team",
     # Advanced (OMO-style)
     "AdvancedOrchestrator", "create_advanced_agent",
+    # Cache-First (Reasonix-inspired)
+    "CacheFirstAgent", "ImmutablePrefix", "AppendOnlyLog", "VolatileScratch",
+    "ToolCallRepairPipeline", "CacheStats", "CostAwareRouter", "ComplexityTier",
+    "create_cache_first_agent",
 ]
