@@ -13,6 +13,7 @@ Agent Learn — AI Agent 开发学习包。
 - cache_first:     Reasonix 启发的缓存优先循环 + 工具修复
 - analysis_agent:  定制化问题分析 Agent (O-H-V-C 协议)
 - provider_agent:  模型无关 Agent (适配器模式)
+- reflexion_agent: 元认知自反思 Agent (Generate→Critique→Refine)
 - adapters:        多模型适配层 (Anthropic/OpenAI)
 """
 
@@ -41,6 +42,7 @@ from agent_learn.analysis_agent import (
     create_python_bug_domain, create_api_debug_domain,
 )
 from agent_learn.provider_agent import ProviderAgent, create_agent_for
+from agent_learn.reflexion_agent import ReflexionAgent, CritiqueDimension, ReflexionReport
 
 __all__ = [
     # Base
@@ -69,4 +71,6 @@ __all__ = [
     "create_python_bug_domain", "create_api_debug_domain",
     # Provider-Agnostic
     "ProviderAgent", "create_agent_for",
+    # Metacognition / Reflexion
+    "ReflexionAgent", "CritiqueDimension", "ReflexionReport",
 ]

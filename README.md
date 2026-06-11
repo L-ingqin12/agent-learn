@@ -138,6 +138,34 @@ python examples/01_weather_agent.py
 
 ## 更新记录
 
+### v0.7.0 — 2026-05-30: 教程对齐 + 元认知实现 + 生态全景
+
+**新增文档** (3 章):
+- `docs/12-agentic-rag-and-protocols.md` — Agentic RAG + MCP/A2A 协议 + 可信 Agent
+  - 综合 Microsoft Lessons 5/6/11 + Hello-Agents Chapters 8/10
+  - Self-Reflective RAG / Adaptive RAG / Multi-Source RAG 三种模式
+  - 四层防护模型 / MCP vs A2A vs ANP 对比 / "Everything is a Tool" 哲学
+- `docs/13-metacognition-and-evaluation.md` — 元认知自反思 + Agent 评估框架
+  - 综合 Microsoft Lesson 9 + Hello-Agents Chapter 4/12
+  - ReAct / Plan-and-Solve / Reflection 三种经典范式详解
+  - 三层次评估框架 / LLM-as-Critic / Multi-Dimension Critic
+- `docs/14-awesome-agent-ecosystem.md` — Awesome Agent 生态全景 (2026)
+  - GitHub 高星项目汇总: AutoGPT (184k), Dify (144k), LangChain (138k) 等
+  - 四梯队分级 / 框架能力矩阵 / 选择决策矩阵 / 6 大趋势
+  - agent-learn 在生态中的定位
+
+**新增模块**:
+- `agent_learn/reflexion_agent.py` — 元认知自反思 Agent
+  - Generate → Self-Critique → Refine 循环
+  - LLM-as-Critic / Rule+LLM Hybrid / Multi-Dimension 三种模式
+  - CriticRegistry — 可插拔评审维度
+  - 预置代码评审 (正确性/完整性/效率) + 写作评审 (清晰/完整/简洁)
+
+**新增示例**:
+- `examples/11_reflexion_agent.py` — 3 个子 Demo (LLM评审 / 轨迹分析 / 规则检查)
+
+---
+
 ### v0.6.0 — 2026-05-30: 知识库扩充 — 生产实践 + 高级模式 + 最佳实践速查
 
 **新增文档** (3 章):
